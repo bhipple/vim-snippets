@@ -113,3 +113,12 @@ snippet it
 snippet itp
 	it "${1}" $ property $
 		$0
+snippet turtle
+	#!/usr/bin/env runhaskell
+	{-# LANGUAGE OverloadedStrings #-}
+
+	import Turtle
+
+	main :: IO ()
+	main = do
+		${1:putStrLn "Turtle!"}
