@@ -15,12 +15,11 @@ endsnippet
 snippet cl "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`}
 {
-public:
-	${1/(\w+).*/$1/} (${2:arguments});
-	virtual ~${1/(\w+).*/$1/} ();
+  public:
+	${1/(\w+).*/$1/}(${2:arguments});
+	virtual ~${1/(\w+).*/$1/}();
 
-private:
-	${0:/* data */}
+  private:
 };
 endsnippet
 
@@ -43,15 +42,47 @@ if (FILE *fp = fopen(${1:"filename"}, "r"))
 endsnippet
 
 snippet map "std::map (map)"
-std::map<${1:key}, ${2:value}> map$0;
+std::map<${1:int}, ${2:std::string}> ${0:map};
+endsnippet
+
+snippet set "std::set (set)"
+std::set<${1:std::string}> ${0:set};
 endsnippet
 
 snippet vector "std::vector (v)"
-std::vector<${1:char}> v$0;
+std::vector<${1:std::string}> ${0:v};
 endsnippet
 
 snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
+endsnippet
+
+##
+## BAEL Logging
+snippet trace "BAEL_LOG_TRACE"
+BAEL_LOG_TRACE << ${1} << BAEL_LOG_END;
+endsnippet
+snippet debug "BAEL_LOG_DEBUG"
+BAEL_LOG_DEBUG << ${1} << BAEL_LOG_END;
+endsnippet
+snippet info "BAEL_LOG_INFO"
+BAEL_LOG_INFO << ${1} << BAEL_LOG_END;
+endsnippet
+snippet error "BAEL_LOG_ERROR"
+BAEL_LOG_ERROR << ${1} << BAEL_LOG_END;
+endsnippet
+snippet fatal "BAEL_LOG_FATAL"
+BAEL_LOG_FATAL << ${1} << BAEL_LOG_END;
+endsnippet
+
+# foreach
+snippet fore "for(auto i :: container)"
+for(${1:auto} ${2:i} : ${3:container}) {
+	${4}
+}
+endsnippet
+snippet foreach "std::for_each(c.begin(), c.end(), f)"
+std::for_each(${1:container}.begin(), $1.end(), ${0:func});
 endsnippet
 
 # vim:ft=snippets:

@@ -102,16 +102,6 @@ snippet ret
 	return ${0};
 ##
 ## Loops
-# for
-snippet for
-	for (${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
-		${4}
-	}
-# for (custom)
-snippet forr
-	for (${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
-		${5}
-	}
 # while
 snippet wh
 	while (${1:/* condition */}) {
@@ -122,17 +112,6 @@ snippet do
 	do {
 		${2}
 	} while (${1:/* condition */});
-##
-## Functions
-# function definition
-snippet fun
-	${1:void} ${2:function_name}(${3})
-	{
-		${4}
-	}
-# function declaration
-snippet fund
-	${1:void} ${2:function_name}(${3});
 ##
 ## Types
 # typedef
