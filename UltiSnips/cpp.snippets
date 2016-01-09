@@ -85,4 +85,32 @@ snippet foreach "std::for_each(c.begin(), c.end(), f)"
 std::for_each(${1:container}.begin(), $1.end(), ${0:func});
 endsnippet
 
+# Google Test
+snippet gtest "GTest TEST"
+TEST(${1:Section}, ${2:Name}) {
+	// GIVEN
+	$0
+	// WHEN
+	// THEN
+}
+endsnippet
+
+snippet gtestf "GTest TEST_F"
+TEST_F(${1:Fixture}, ${2:Name}) {
+	// GIVEN
+	$0
+	// WHEN
+	// THEN
+}
+endsnippet
+
+snippet fixture "GTest Fixture Class"
+class ${1:Fixture} : public testing::Test {
+  protected:
+	virtual void SetUp() {
+	$0
+	}
+}
+endsnippet
+
 # vim:ft=snippets:
