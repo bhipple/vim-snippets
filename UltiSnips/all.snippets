@@ -73,4 +73,21 @@ snippet modeline "Vim modeline"
 vim`!v ':set '. (&expandtab ? printf('et sw=%i ts=%i', &sw, &ts) : printf('noet sts=%i sw=%i ts=%i', &sts, &sw, &ts)) . (&tw ? ' tw='. &tw : '') . ':'`
 endsnippet
 
+# Bloomberg Snippets
+snippet bbAcct "BB Account"
+378583
+endsnippet
+
+snippet bbUuid "My UUID"
+11795629
+endsnippet
+
+snippet bbCorpMining "Corp Mining UUID"
+const int UUID_CORP_MINING = 4528874;
+endsnippet
+
+snippet bbBlpMining "BLP Mining UUID"
+const int UUID_BLP_MINING = 6348472;
+endsnippet
+
 # vim:ft=snippets:
