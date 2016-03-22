@@ -6,3 +6,18 @@ snippet deriving "Deriving snippet"
 deriving (${1:Eq, Show})
 ${0}
 endsnippet
+
+snippet script
+#!/usr/bin/env runhaskell
+{-# LANGUAGE OverloadedStrings #-}
+import Control.Monad
+import System.Environment
+import System.Process
+
+run :: String -> IO String
+run cmd = readProcess "sh" ["-c", cmd] ""
+
+main = do
+    args <- getArgs
+    ${0:putStrLn "Your code here"}
+endsnippet
