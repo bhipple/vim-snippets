@@ -2,6 +2,34 @@ priority -50
 
 extends haskell
 
+## ============================================================================
+##                           Instance Declarations
+## ============================================================================
+snippet instanceSemigroup "Semigroup Instance Declaration"
+instance Semigroup ${1:Type} where
+	(<>) = ${0:undefined}
+endsnippet
+
+snippet instanceMonoid "Monoid Instance Declaration"
+instance Monoid ${1:Type} where
+	mempty = ${2:undefined}
+	mappend x y = ${0:undefined}
+endsnippet
+
+snippet instanceFunctor "Functor Instance Declaration"
+instance Functor ${1:Type} where
+	fmap = ${0:undefined}
+endsnippet
+
+snippet instanceApplicative "Applicative Instance Declaration"
+instance Applicative ${1:Type} where
+	pure = ${2:undefined}
+	(<*>) = ${0:undefined}
+endsnippet
+
+## ============================================================================
+##                                   Misc
+## ============================================================================
 snippet deriving "Deriving snippet"
 deriving (${1:Eq, Show})
 ${0}
