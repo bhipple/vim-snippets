@@ -27,12 +27,16 @@ instance Applicative ${1:Type} where
 	(<*>) = ${0:undefined}
 endsnippet
 
+snippet instanceArbitrary "Arbitrary Instance Declaration"
+instance Arbitrary ${1:Type} where
+	arbitrary = ${0:undefined}
+endsnippet
+
 ## ============================================================================
 ##                                   Misc
 ## ============================================================================
 snippet deriving "Deriving snippet"
-deriving (${1:Eq, Show})
-${0}
+deriving (${1:Eq, Show})${0}
 endsnippet
 
 snippet script
