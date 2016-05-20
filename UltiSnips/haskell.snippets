@@ -27,6 +27,12 @@ instance Applicative ${1:Type} where
 	(<*>) = ${0:undefined}
 endsnippet
 
+snippet instanceMonad "Monad Instance Declaration"
+instance Monad ${1:Type} where
+	return = pure
+	(>>=) = ${0:undefined}
+endsnippet
+
 snippet instanceArbitrary "Arbitrary Instance Declaration"
 instance Arbitrary ${1:Type} where
 	arbitrary = ${0:undefined}
