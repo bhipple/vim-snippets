@@ -5,6 +5,11 @@ extends haskell
 ## ============================================================================
 ##                           Instance Declarations
 ## ============================================================================
+snippet instanceFoldable "Foldable Instance Declaration"
+instance Foldable ${1:Type} where
+	foldMap f (${2:Val}) = ${3:undefined}
+endsnippet
+
 snippet instanceSemigroup "Semigroup Instance Declaration"
 instance Semigroup ${1:Type} where
 	(<>) = ${0:undefined}
