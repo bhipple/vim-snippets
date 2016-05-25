@@ -3,6 +3,29 @@ priority -50
 extends haskell
 
 ## ============================================================================
+##                             Data Definitions
+## ============================================================================
+snippet newtype "Newtype Wrapper"
+newtype ${1:Type} = ${2:$1} ${3:members}
+	deriving (${4:Eq, Show})$0
+endsnippet
+
+snippet type "Type Alias"
+type ${1:Type} = ${0:Type}
+endsnippet
+
+snippet dataSimple "Simple Data Type"
+data ${1:Type} = ${2:$1} ${3:Int}
+	deriving (${4:Eq, Show})$0
+endsnippet
+
+snippet dataRecord "Record Data Type"
+data ${1:Type} = ${2:$1} {
+	${3:firstMember} :: ${4:firstType}
+	} deriving (${5:Eq, Show})$0
+endsnippet
+
+## ============================================================================
 ##                           Instance Declarations
 ## ============================================================================
 snippet instanceFoldable "Foldable Instance Declaration"
@@ -30,6 +53,12 @@ snippet instanceApplicative "Applicative Instance Declaration"
 instance Applicative ${1:Type} where
 	pure = ${2:undefined}
 	(<*>) = ${0:undefined}
+endsnippet
+
+snippet instanceTraversable "Traversable Instance Declaration"
+instance Traversable ${1:Type} where
+	traverse f = ${2:minimal: traverse or sequenceA}
+	sequenceA = ${3:minimal: traverse or sequenceA}
 endsnippet
 
 snippet instanceMonad "Monad Instance Declaration"
