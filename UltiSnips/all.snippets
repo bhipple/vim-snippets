@@ -73,6 +73,23 @@ snippet modeline "Vim modeline"
 vim`!v ':set '. (&expandtab ? printf('et sw=%i ts=%i', &sw, &ts) : printf('noet sts=%i sw=%i ts=%i', &sts, &sw, &ts)) . (&tw ? ' tw='. &tw : '') . ':'`
 endsnippet
 
+## Dates
+snippet date "YYYY-MM-DD"
+${2:${1:`date +%Y`}-`date +%m`}-`date +%d`
+endsnippet
+
+snippet ddate "Month DD, YYYY"
+`date "+%B %d, %Y"`
+endsnippet
+
+snippet time "HH:MM"
+`date "+%H:%M"`
+endsnippet
+
+snippet datetime "YYYY-MM-DD HH-MM"
+`date "+%Y-%m-%d %H:%M"`
+endsnippet
+
 # Bloomberg Snippets
 snippet bbAcct "BB Account"
 378583
