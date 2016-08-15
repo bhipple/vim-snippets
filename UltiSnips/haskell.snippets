@@ -28,20 +28,25 @@ endsnippet
 ## ============================================================================
 ##                           Instance Declarations
 ## ============================================================================
+snippet instanceApplicative "Applicative Instance Declaration"
+instance Applicative ${1:Type} where
+	pure = ${2:undefined}
+	(<*>) = ${0:undefined}
+endsnippet
+
+snippet instanceArbitrary "Arbitrary Instance Declaration"
+instance Arbitrary ${1:Type} where
+	arbitrary = ${0:undefined}
+endsnippet
+
+snippet instanceBifunctor "Bifunctor Instance Declaration"
+instance Bifunctor ${1:Type} where
+	bimap f g ($1 ${2:v}) = ${0:undefined}
+endsnippet
+
 snippet instanceFoldable "Foldable Instance Declaration"
 instance Foldable ${1:Type} where
 	foldMap f (${2:Val}) = ${3:undefined}
-endsnippet
-
-snippet instanceSemigroup "Semigroup Instance Declaration"
-instance Semigroup ${1:Type} where
-	(<>) = ${0:undefined}
-endsnippet
-
-snippet instanceMonoid "Monoid Instance Declaration"
-instance Monoid ${1:Type} where
-	mempty = ${2:undefined}
-	mappend x y = ${0:undefined}
 endsnippet
 
 snippet instanceFunctor "Functor Instance Declaration"
@@ -49,16 +54,10 @@ instance Functor ${1:Type} where
 	fmap = ${0:undefined}
 endsnippet
 
-snippet instanceApplicative "Applicative Instance Declaration"
-instance Applicative ${1:Type} where
-	pure = ${2:undefined}
-	(<*>) = ${0:undefined}
-endsnippet
-
-snippet instanceTraversable "Traversable Instance Declaration"
-instance Traversable ${1:Type} where
-	traverse f = ${2:minimal: traverse or sequenceA}
-	sequenceA = ${3:minimal: traverse or sequenceA}
+snippet instanceFromJSON "FromJSON Instance Declaration"
+instance FromJSON ${1:Type} where
+	parseJSON (${2:Object v}) = ${0:undefined}
+	parseJSON _ = fail "Failed to parse $1 from JSON"
 endsnippet
 
 snippet instanceMonad "Monad Instance Declaration"
@@ -67,9 +66,21 @@ instance Monad ${1:Type} where
 	(>>=) = ${0:undefined}
 endsnippet
 
-snippet instanceArbitrary "Arbitrary Instance Declaration"
-instance Arbitrary ${1:Type} where
-	arbitrary = ${0:undefined}
+snippet instanceMonoid "Monoid Instance Declaration"
+instance Monoid ${1:Type} where
+	mempty = ${2:undefined}
+	mappend x y = ${0:undefined}
+endsnippet
+
+snippet instanceSemigroup "Semigroup Instance Declaration"
+instance Semigroup ${1:Type} where
+	(<>) = ${0:undefined}
+endsnippet
+
+snippet instanceTraversable "Traversable Instance Declaration"
+instance Traversable ${1:Type} where
+	traverse f = ${2:minimal: traverse or sequenceA}
+	sequenceA = ${3:minimal: traverse or sequenceA}
 endsnippet
 
 ## ============================================================================
