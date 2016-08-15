@@ -83,6 +83,26 @@ instance Traversable ${1:Type} where
 	sequenceA = ${3:minimal: traverse or sequenceA}
 endsnippet
 
+# =============================================================================
+#                                  Imports
+# =============================================================================
+snippet imp "Standard Import"
+import ${0:Data.Text}
+endsnippet
+
+snippet impf "Function Import"
+import ${1:Data.Text} (${0:head})
+endsnippet
+
+snippet impq "Qualified Import"
+import qualified ${1:Data.Text} as ${0:T}
+endsnippet
+
+snippet impdbl "Import Constructor + qualified"
+import ${1:Data.}${2:Map} ($2)
+import qualified $1$2 as $2
+endsnippet
+
 ## ============================================================================
 ##                                   Misc
 ## ============================================================================
