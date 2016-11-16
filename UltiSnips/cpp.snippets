@@ -8,8 +8,8 @@ priority -49
 ###########################################################################
 #                            TextMate Snippets                            #
 ###########################################################################
-snippet beginend "$1.begin(), $1.end() (beginend)"
-${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+snippet beginend "$1.cbegin(), $1.end() (cbeginend)"
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}cbegin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}cend()
 endsnippet
 
 snippet cl "class .. (class)"
@@ -31,7 +31,7 @@ namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
 endsnippet
 
 snippet readfile "read file (readF)"
-std::vector<char> v;
+bsl::vector<char> v;
 if (FILE *fp = fopen(${1:"filename"}, "r"))
 {
 	char buf[1024];
@@ -41,16 +41,16 @@ if (FILE *fp = fopen(${1:"filename"}, "r"))
 }
 endsnippet
 
-snippet map "std::map (map)"
-std::map<${1:int}, ${2:std::string}> ${0:map};
+snippet map "bsl::map (map)"
+bsl::map<${1:int}, ${2:bsl::string}> ${0:map};
 endsnippet
 
-snippet set "std::set (set)"
-std::set<${1:std::string}> ${0:set};
+snippet set "bsl::set (set)"
+bsl::set<${1:bsl::string}> ${0:set};
 endsnippet
 
-snippet vector "std::vector (v)"
-std::vector<${1:std::string}> ${0:v};
+snippet vector "bsl::vector (v)"
+bsl::vector<${1:bsl::string}> ${0:v};
 endsnippet
 
 snippet tp "template <typename ..> (template)"
@@ -76,31 +76,26 @@ BAEL_LOG_FATAL << ${1} << BAEL_LOG_END;
 endsnippet
 
 # foreach
-snippet fore "for(auto i :: container)"
-for(${1:auto} ${2:i} : ${3:container}) {
-	${4}
+snippet fore "for(const auto& i :: container)"
+for(const ${1:auto}& ${2:i} : ${3:container}) {
+	${0}
 }
 endsnippet
-snippet foreach "std::for_each(c.begin(), c.end(), f)"
-std::for_each(${1:container}.begin(), $1.end(), ${0:func});
+
+snippet foreach "bsl::for_each(c.cbegin(), c.cend(), f)"
+bsl::for_each(${1:container}.cbegin(), $1.end(), ${0:func});
 endsnippet
 
 # Google Test
 snippet gtest "GTest TEST"
 TEST(${1:Section}, ${2:Name}) {
-	// GIVEN
 	$0
-	// WHEN
-	// THEN
 }
 endsnippet
 
 snippet gtestf "GTest TEST_F"
 TEST_F(${1:Fixture}, ${2:Name}) {
-	// GIVEN
 	$0
-	// WHEN
-	// THEN
 }
 endsnippet
 
@@ -110,7 +105,7 @@ class ${1:Fixture} : public testing::Test {
 	virtual void SetUp() {
 	$0
 	}
-}
+};
 endsnippet
 
 # vim:ft=snippets:
