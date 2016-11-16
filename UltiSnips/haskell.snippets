@@ -121,10 +121,21 @@ endsnippet
 
 snippet script
 #!/usr/bin/env stack
--- stack --install-ghc runghc --package turtle
+-- stack --install-ghc runghc --package optparse-generic --package text
 {-# LANGUAGE OverloadedStrings #-}
-import Turtle
+{-# LANGUAGE DeriveGeneric #-}
+import Options.Generic
+import System.Environment
+import Data.Text (Text)
+import Data.Maybe
+import System.Process
+import qualified Data.Text as T
+
+data Args = Args { ${1:foo} :: ${2:Bool}
+	} deriving (Generic, Show)
+instance ParseRecord Args
 
 main = do
-	${0:echo "Hello World!"}
+	Args ${3:f} <- getRecord "`!p snip.rv = snip.fn`"
+	callCommand "ls -l | grep *.hs"
 endsnippet
