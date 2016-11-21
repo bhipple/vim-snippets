@@ -139,3 +139,28 @@ main = do
 	Args ${3:f} <- getRecord "`!p snip.rv = snip.fn`"
 	callCommand "ls -l | grep *.hs"
 endsnippet
+
+snippet codecon
+#!/usr/bin/env stack
+-- stack --install-ghc runghc
+import Control.Monad
+import Data.Char
+import Data.List
+import Data.Maybe
+import Data.Monoid
+import Text.Regex.Posix
+
+readInt :: IO Int
+readInt = readLn
+
+main :: IO ()
+main = do
+	input <- lines <$> getContents
+	${0:mapM_ putStrLn input}
+
+solve :: a -> a
+solve xs = undefined
+
+fmt :: [String] -> IO
+fmt xs = mapM_ putStrLn xs
+endsnippet
